@@ -1,7 +1,7 @@
 import argparse
 from s3util.utils.pathparser import pathparser
 
-def removefiles(paths,client,recursive,profile):
+def removefiles(paths,client,recursive):
     
     if(recursive):
         deletelist=[]
@@ -32,13 +32,8 @@ def removefiles(paths,client,recursive,profile):
     else:
         for path in paths:
             [bucket, directory, incompletepath]= pathparser(path)
+            deletepath=[{"Key":(directory+incompletepath).strip("/")}]
             try:
-                response = client.delete_objects(
-                            Bucket=bucket,
-                            Delete={
-                                'Objects': directory+incompletepath,
-                                'Quiet': True
-                            }
-                        )
+                response = client.delete_objects(Bucket=bucket,Delete={'Objects': deletepath,'Quiet': True})
             except:
-                print("Can not delete path ",directory+incompletepath)
+                print("Can not delete path ",deletepath)
