@@ -37,7 +37,13 @@ delete multiple directories or file in batch of 1000 objects
 
 
 ## Install Instruction
-### For Local development
+
+``$ pip install s3util``
+
+follow below setup for autocompletion according to the terminal you are using (bash, zsh etc)
+
+
+## For Local development
 `` $ git clone https://github.com/karannaoh/s3util.git``
 
 `` $ cd s3util/``
@@ -52,7 +58,7 @@ delete multiple directories or file in batch of 1000 objects
 
 
 
-### For autocompletion to work, 
+## For autocompletion to work, 
 
 For bash,
 
